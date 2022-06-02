@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
                             <div class="text-center w-75 m-auto">
                                 <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Sign In</h4>
                             </div>
-                            <form action="login.php" method="POST">
+                            <form action="index.php" method="POST">
                                 <div class="form-group">
                                     <label for="account">Account</label>
                                     <input name="account" class="form-control" type="text" id="account" required=""
