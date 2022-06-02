@@ -221,7 +221,7 @@ if (isset($_POST['delete']) && ((int)$_SESSION['role'] === 1)) {
                                                                             class="uil uil-ellipsis-v"
                                                                             visible></i></button><div class="dropdown-menu ">
                                                                         <a class="dropdown-item" href="#">Edit</a>
-                                                                        <a class="dropdown-item" href="profile.php?delete=' . $message->id . '">Delete</a>
+                                                                        <a class="dropdown-item" href="profile.php?id=' . $_GET['id'] . '&delete=' . $message->id . '">Delete</a>
                                                                     </div></div>'; ?>
 
                                                             </li>
