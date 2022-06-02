@@ -63,13 +63,13 @@ if (isset($_POST['submit_task'])) {
                     ':folder' => $folder
                 ]);
             } else {
-                // $abc = $select_submit->fetch()->folder;
-                // $delete_files = glob($abc . '/*');
-                // foreach ($delete_files as $delete_file) {
-                //     if (is_file($delete_file)) {
-                //         unlink($delete_file); // delete file
-                //     }
-                // }
+                $abc = $select_submit->fetch()->folder;
+                $delete_files = glob($abc . '/*');
+                foreach ($delete_files as $delete_file) {
+                    if (is_file($delete_file)) {
+                        unlink($delete_file); // delete file
+                    }
+                }
                 $command = $conn->prepare("UPDATE submit_tasks SET file_destination = :file_destination,folder = :folder WHERE task_id = :task_id AND user_account = :user_account");
                 $command->execute([
                     ':task_id' => (int)$_GET['id'],
