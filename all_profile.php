@@ -80,12 +80,12 @@ $select_users->setFetchMode(PDO::FETCH_OBJ);
                                                 <td class="table-user">
                                                     <img src="assets/images/users/avatar.png" alt="table-user"
                                                         class="mr-2 rounded-circle">
-                                                    <a href="profile.php?id=<?php echo $user->id ?>"
+                                                    <a href="profile.php?id=<?php echo htmlspecialchars($user->id) ?>"
                                                         class="text-body
                                                         font-weight-semibold"><?php echo htmlspecialchars($user->name) ?></a></a>
                                                 </td>
 
-                                                <?php if ($_SESSION['role'] == 1) echo '<td><a href="profile.php?id=' . $user->id . '"
+                                                <?php if ($_SESSION['role'] == 1) echo '<td><a href="profile.php?id=' . htmlspecialchars($user->id) . '"
                                                         class="action-icon"> <i
                                                             class="mdi mdi-square-edit-outline"></i></a></td>'; ?>
 

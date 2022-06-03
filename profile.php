@@ -151,7 +151,7 @@ if (isset($_POST['delete']) && ((int)$_SESSION['role'] === 1)) {
                                             class="nav-link rounded-0">
                                             Settings
                                         </a>
-                                    </li>' ?>
+                                    </li>'; ?>
                                     </ul>
                                     <div class="tab-content align-self-center">
                                         <div class="tab-pane <?php if ($_SESSION['active'] !== 'message') {
@@ -221,7 +221,7 @@ if (isset($_POST['delete']) && ((int)$_SESSION['role'] === 1)) {
                                                                             class="uil uil-ellipsis-v"
                                                                             visible></i></button><div class="dropdown-menu ">
                                                                         <a class="dropdown-item" href="#">Edit</a>
-                                                                        <a class="dropdown-item" href="profile.php?id=' . $_GET['id'] . '&delete=' . $message->id . '">Delete</a>
+                                                                        <a class="dropdown-item" href="profile.php?id=' . htmlspecialchars($_GET['id']) . '&delete=' . htmlspecialchars($message->id) . '">Delete</a>
                                                                     </div></div>'; ?>
 
                                                             </li>
@@ -233,7 +233,7 @@ if (isset($_POST['delete']) && ((int)$_SESSION['role'] === 1)) {
                                                                 <div class="mt-2 bg-light p-3 rounded">
                                                                     <form class="needs-validation" novalidate=""
                                                                         name="chat-form" id="chat-form" method="POST"
-                                                                        action="profile.php?id=<?php echo $user->id ?>">
+                                                                        action="profile.php?id=<?php echo htmlspecialchars($user->id); ?>">
                                                                         <div class="row">
                                                                             <div class="col mb-2 mb-sm-0">
                                                                                 <input type="text"

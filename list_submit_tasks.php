@@ -61,7 +61,7 @@ $select_tasks->setFetchMode(PDO::FETCH_OBJ);
                             <div class="card d-block">
                                 <div class="card-body">
                                     <h4 class="mt-0">
-                                        <a href="submit_task.php?id=<?php echo $select_task->task_id; ?>&account=<?php echo htmlspecialchars($select_task->user_account); ?>"
+                                        <a href="submit_task.php?id=<?php echo htmlspecialchars($select_task->task_id); ?>&account=<?php echo htmlspecialchars($select_task->user_account); ?>"
                                             class="text-title"><?php echo htmlspecialchars($select_task->user_account); ?></a>
                                     </h4>
                                 </div>

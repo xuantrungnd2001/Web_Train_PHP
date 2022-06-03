@@ -19,7 +19,7 @@ foreach ($get_folder as $file) {
     $file_ext = end(explode(".", $file));
     $allowed_ext = array('jpg', 'png', 'doc', 'docx', 'pdf', 'jpeg');
     if (in_array($file_ext, $allowed_ext)) {
-        if ($file_ext == 'pdf') $output .= '<div class="col-md-6"><iframe src="' . $folder . '/' . $file . '" width="100%" style="height:500px"></iframe></div>';
+        if ($file_ext == 'pdf') $output .= '<div class="col-md-6"><iframe src="' . htmlspecialchars($folder) . '/' . htmlspecialchars($file) . '" width="100%" style="height:500px"></iframe></div>';
     }
 }
 
@@ -169,7 +169,8 @@ if (isset($_POST['submit_task'])) {
                                             <div class="form-group mt-3 mt-xl-0">
                                                 <div class="text mt-3 ">
                                                     <p class="text-muted mb-2 font-16"><a
-                                                            href="<?php echo $task->task_destination ?>" download>
+                                                            href="<?php echo htmlspecialchars($task->task_destination); ?>"
+                                                            download>
                                                             Tải đề bài
                                                         </a>
                                                     </p>
@@ -178,8 +179,8 @@ if (isset($_POST['submit_task'])) {
                                                             class="ml-2"><?php echo htmlspecialchars($task->task_overview); ?></span>
                                                     </p>
                                                 </div>
-                                                <form action="task.php?id=<?php echo $_GET['id']; ?>" name="form1"
-                                                    method="POST" enctype="multipart/form-data">
+                                                <form action="task.php?id=<?php echo htmlspecialchars($_GET['id']); ?>"
+                                                    name="form1" method="POST" enctype="multipart/form-data">
                                                     <p class="text-muted mb-2 font-16"><strong>Nộp bài<br>
                                                     </p>
 

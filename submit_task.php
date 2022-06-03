@@ -2,7 +2,7 @@
 session_start();
 include "check_login.php";
 include "connect_db.php";
-
+include "check_admin.php";
 //get submitted task info
 $task_id = (int)$_GET['id'];
 $select_task = $conn->prepare("SELECT * FROM submit_tasks WHERE task_id = :task_id AND user_account = :user_account");
@@ -19,7 +19,7 @@ $get_folder = scandir($folder);
 foreach ($get_folder as $file) {
     $file_ext = end(explode(".", $file));
     if ($file_ext == 'pdf')
-        $output .= '<div class="col-md-6"><iframe src="' . $folder . '/' . $file . '" width="100%" style="height:500px"></iframe></div>';
+        $output .= '<div class="col-md-6"><iframe src="' . htmlspecialchars($folder) . '/' . htmlspecialchars($file) . '" width="100%" style="height:500px"></iframe></div>';
 }
 
 ?>
@@ -75,7 +75,8 @@ foreach ($get_folder as $file) {
                                             <div class="form-group mt-3 mt-xl-0">
                                                 <div class="text mt-3 ">
                                                     <p class="text-muted mb-2 font-16"><a
-                                                            href="<?php echo $task->file_destination ?>" download>
+                                                            href="<?php echo htmlspecialchars($task->file_destination); ?>"
+                                                            download>
                                                             Tải bài làm
                                                         </a>
                                                     </p>

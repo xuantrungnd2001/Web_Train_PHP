@@ -1,18 +1,18 @@
 <div class="tab-pane" id="settings">
-    <form action="profile.php?id=<?php echo $user->id ?>" method="POST">
+    <form action="profile.php?id=<?php echo htmlspecialchars($user->id) ?>" method="POST">
         <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle mr-1"></i> Personal Info</h5>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Email</label>
-                    <input name="email" value="<?php echo $user->email; ?>" type="text" class="form-control"
-                        placeholder="Email">
+                    <input name="email" value="<?php echo htmlspecialchars($user->email); ?>" type="text"
+                        class="form-control" placeholder="Email">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Số điện thoại</label>
-                    <input name="phone_number" value="<?php echo $user->phone_number; ?>" type="text"
+                    <input name="phone_number" value="<?php echo htmlspecialchars($user->phone_number); ?>" type="text"
                         class="form-control" placeholder="Số điện thoại">
                 </div>
             </div>

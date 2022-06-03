@@ -66,16 +66,16 @@ $select_tasks->setFetchMode(PDO::FETCH_OBJ);
                             <div class="card d-block">
                                 <div class="card-body">
                                     <?php if (!empty($_SESSION['role'])) {
-                                            echo ' <div class="dropdown card-widgets">
+                                            echo  '<div class="dropdown card-widgets">
                                         <a href="#" class="dropdown-toggle arrow-none" data-toggle="dropdown"
                                             aria-expanded="false">
                                             <i class="dripicons-dots-3"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="task.php?id=' . $select_task->task_id . '"
+                                            <a href="task.php?id=' . htmlspecialchars($select_task->task_id) . '"
                                     class="dropdown-item"><i class="mdi mdi-pencil mr-1"></i>Chi tiết bài
                                     tập</a>
-                                    <a href="list_submit_tasks.php?id=' . $select_task->task_id . '"
+                                    <a href="list_submit_tasks.php?id=' . htmlspecialchars($select_task->task_id) . '"
                                         class="dropdown-item"><i class=" mdi mdi-format-list-checks mr-1"></i>Danh sách bài
                                         làm</a>
                                 </div>
@@ -83,7 +83,7 @@ $select_tasks->setFetchMode(PDO::FETCH_OBJ);
                                         } ?>
 
                                     <h4 class="mt-0">
-                                        <a href="task.php?id=<?php echo $select_task->task_id; ?>"
+                                        <a href="task.php?id=<?php echo htmlspecialchars($select_task->task_id); ?>"
                                             class="text-title"><?php echo htmlspecialchars($select_task->task_name); ?></a>
                                     </h4>
                                 </div>
